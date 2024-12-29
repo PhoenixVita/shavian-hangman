@@ -5,20 +5,49 @@
 {% endblock %}
 
 {% block main %}
-    <p>Random word: {{ masked }}</p>
-
-    <div class="char-rows">
+    <p>Random word:</p>
+    <p id="masked">{{ masked }}</p>
+    <p>Letters: {{ length }}</p>
+    <p>Answer: {{ word }}</p>
+    <p>you pressed: {{ letter }}</p>
+    <form class="char-rows" method="POST" action="/play">
+        <input type="hidden" name="word" value="{{ word }}">
+        <input type="hidden" name="masked" value="{{ masked }}">
+        <input type="hidden" name="length" value="{{ length }}">
         <div>
-            <button>A</button><button>B</button><button>C</button><button>D</button><button>E</button><button>F</button><button>G</button>
+            <button type="submit" name="button" value="a">A</button>
+            <button type="submit" name="button" value="b">B</button>
+            <button type="submit" name="button" value="c">C</button>
+            <button type="submit" name="button" value="d">D</button>
+            <button type="submit" name="button" value="e">E</button>
+            <button type="submit" name="button" value="f">F</button>
+            <button type="submit" name="button" value="g">G</button>
         </div>
         <div>
-            <button>H</button><button>I</button><button>J</button><button>K</button><button>L</button><button>M</button><button>N</button>
+            <button type="submit" name="button" value="h">H</button>
+            <button type="submit" name="button" value="i">I</button>
+            <button type="submit" name="button" value="j">J</button>
+            <button type="submit" name="button" value="k">K</button>
+            <button type="submit" name="button" value="l">L</button>
+            <button type="submit" name="button" value="m">M</button>
+            <button type="submit" name="button" value="n">N</button>
         </div>
         <div>
-            <button>O</button><button>P</button><button>Q</button><button>R</button><button>S</button><button>T</button><button>U</button>
+            <button type="submit" name="button" value="o">O</button>
+            <button type="submit" name="button" value="p">P</button>
+            <button type="submit" name="button" value="q">Q</button>
+            <button type="submit" name="button" value="r">R</button>
+            <button type="submit" name="button" value="s">S</button>
+            <button type="submit" name="button" value="t">T</button>
+            <button type="submit" name="button" value="u">U</button>
         </div>
         <div>
-            <button>V</button><button>W</button><button>X</button><button>Y</button><button>Z</button>
-        </div>
-    </div>
+            <button type="submit" name="button" value="v">V</button>
+            <button type="submit" name="button" value="w">W</button>
+            <button type="submit" name="button" value="x">X</button>
+            <button type="submit" name="button" value="y">Y</button> 
+            <button type="submit" name="button" value="z">Z</button> 
+        </div> 
+    </form> 
+    
 {% endblock %}
