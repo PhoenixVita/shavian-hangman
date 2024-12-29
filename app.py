@@ -10,13 +10,16 @@ def index():
 
 
 
-@app.route("/play")
+@app.route("/play", methods=["GET", "POST"])
 def play():
     
     if request.method == "GET":
-
-        word = wordlist()
-        return render_template("play.html", word=word)
+        word = str(wordlist())
+        masked = ""
+        length = strlen(word)
+        for char in word:
+            masked += "_ "
+        return render_template("play.html",masked=masked)
 
 
 
