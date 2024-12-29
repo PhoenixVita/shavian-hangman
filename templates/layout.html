@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shavian Hangman: {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </head>
 <body>
-
+    {% block main %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

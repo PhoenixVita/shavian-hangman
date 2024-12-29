@@ -17,5 +17,4 @@ def play():
 
 @app.route("/wordbank", methods=["GET", "POST"])
 def wordbank():
-
     return render_template("wordbank.html")
