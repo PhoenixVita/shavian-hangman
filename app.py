@@ -1,4 +1,5 @@
 from flask import Flask, flash, render_template, request
+from helpers import wordlist
 
 app = Flask(__name__)
 
@@ -11,7 +12,10 @@ def index():
 
 @app.route("/play")
 def play():
-    return render_template("play.html")
+    
+    word = wordlist()
+
+    return render_template("play.html", word=word)
 
 
 
