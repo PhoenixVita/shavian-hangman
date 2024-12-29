@@ -109,5 +109,3 @@ def wordlist():
 
     return random.choice(words)
 
-
-print(wordlist())

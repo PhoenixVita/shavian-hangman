@@ -27,13 +27,10 @@ def play():
         masked = request.form.get("masked")
 
 
-        temp = word.upper()
 
-        index = 0
-        if letter in temp:
-            index = temp.index(letter)
-            print(index)
-
+        for i in range(length):
+            if letter == word[i]:
+                masked = masked[:i] + word[i] + masked[i + 1:]
         
         return render_template("play.html", length=length, letter=letter, masked=masked, word=word)
 
