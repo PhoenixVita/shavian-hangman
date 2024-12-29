@@ -13,9 +13,10 @@ def index():
 @app.route("/play")
 def play():
     
-    word = wordlist()
+    if request.method == "GET":
 
-    return render_template("play.html", word=word)
+        word = wordlist()
+        return render_template("play.html", word=word)
 
 
 

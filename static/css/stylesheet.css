@@ -15,8 +15,9 @@ body {
     flex-direction: column;
 }
 
-button {
+.container button {
     margin: 20px 20%;
     font-size: 30px;
     padding: 10px;
 }
+
