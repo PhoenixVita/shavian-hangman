@@ -46,5 +46,37 @@ def play():
 
 
 @app.route("/english", methods=["GET", "POST"])
-def wordbank():
-    return render_template("english.html")
+def english():
+    
+    if request.method == "GET":
+        word_dict = wordlist()
+        word = str(word_dict['english'])
+        english = str(word_dict['english'])
+        masked = ""
+        length = len(word)
+        for char in word:
+            masked += "_"
+        return render_template("english.html", length=length, masked=masked, word=word, english=english)
+
+    else:
+        guess = request.form.get("guess")
+        word = request.form.get("word") 
+        letter = request.form.get("button")
+        length = int(request.form.get("length"))
+        masked = request.form.get("masked")
+        english = request.form.get("english")
+
+
+        for i in range(length):
+            if letter == word[i]:
+                masked = masked[:i] + word[i] + masked[i + 1:]
+
+        
+        win = 0
+        if word == masked or english == guess:
+            masked = word
+            win = 1
+
+        if win == True:
+            print("victory!")
+        return render_template("english.html", length=length, letter=letter, masked=masked, word=word, english=english, win=win)
