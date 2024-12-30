@@ -45,6 +45,6 @@ def play():
         return render_template("play.html", length=length, letter=letter, masked=masked, word=word, english=english, win=win)
 
 
-@app.route("/wordbank", methods=["GET", "POST"])
+@app.route("/english", methods=["GET", "POST"])
 def wordbank():
-    return render_template("wordbank.html")
+    return render_template("english.html")
