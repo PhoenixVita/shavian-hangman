@@ -8,6 +8,12 @@
 
 </head>
 <body>
+    <div id="navigationbar">
+        <ul>
+            <li><a href="{{ url_for('index')}}">Home</a></li>
+            <li><a href="https://www.shavian.info">More info</a></li>
+        </ul>
+    </div>
     {% block main %}
     {% endblock %}
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
