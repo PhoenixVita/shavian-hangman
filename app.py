@@ -34,7 +34,7 @@ def play():
         if letter and letter not in word:
             letters = letters + letter + ', '
 
-        if guess:
+        if guess and guess not in english:
             letters = letters + guess + ', '
 
         for i in range(length):
@@ -75,6 +75,9 @@ def english():
 
         if letter and letter not in word:
             letters = letters + letter + ','
+
+        if guess and guess not in word:
+            letters = letters + guess + ', '
 
         for i in range(length):
             if letter == word[i]:
