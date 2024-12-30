@@ -31,7 +31,7 @@ def play():
         english = request.form.get("english")
         letters = request.form.get("letters")
 
-        if letter and letter not in word:
+        if letter and letter not in word and letter not in letters:
             letters = letters + letter + ', '
 
         if guess and guess not in english:
@@ -47,9 +47,13 @@ def play():
             masked = word
             win = 1
 
+        lose = 0
+        if guess and guess !=english:
+            lose = 1
+
         if win == True:
             print("victory!")
-        return render_template("play.html", length=length, letter=letter, letters=letters, masked=masked, word=word, english=english, win=win)
+        return render_template("play.html", length=length, letter=letter, letters=letters, masked=masked, word=word, english=english, win=win, lose=lose)
 
 
 @app.route("/english", methods=["GET", "POST"])
@@ -73,7 +77,7 @@ def english():
         masked = request.form.get("masked")
         letters = request.form.get("letters")
 
-        if letter and letter not in word:
+        if letter and letter not in word and letter not in letters:
             letters = letters + letter + ','
 
         if guess and guess not in word:
@@ -89,6 +93,10 @@ def english():
             masked = word
             win = 1
 
+        lose = 0
+        if guess and guess !=word:
+            lose = 1            
+
         if win == True:
             print("victory!")
-        return render_template("english.html", length=length, letter=letter, letters=letters, masked=masked, word=word, win=win)
+        return render_template("english.html", length=length, letter=letter, letters=letters, masked=masked, word=word, win=win, lose=lose)

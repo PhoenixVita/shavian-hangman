@@ -41,6 +41,11 @@ button {
     background-color: #4b6d34dc;
 }
 
+#lose {
+    border: 5px #e78284 solid;
+    background-color: #8c4040dc;
+}
+
 #play {
     border: 3px #e78284 solid;
 }
