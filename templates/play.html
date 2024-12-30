@@ -10,6 +10,7 @@
     <p>Letters: {{ length }}</p>
     <p>Answer: {{ word }} ({{ english }})</p>
     <p>you pressed: {{ letter }}</p>
+
     {% if win %}
         <div>
             <p>You win! The answer was:</p>
@@ -23,6 +24,8 @@
         <input type="hidden" name="masked" value="{{ masked }}">
         <input type="hidden" name="length" value="{{ length }}">
         <input type="hidden" name="english" value="{{ english }}">
+        <input name="guess" placeholder="Guess word" type="text">
+        <button type="submit">Confirm</button>
         <div>
             <button type="submit" name="button" value="𐑐">𐑐</button>
             <button type="submit" name="button" value="𐑑">𐑑</button>
