@@ -8,13 +8,15 @@
     <p>Random word:</p>
     <p id="masked">{{ masked }}</p>
     <p>Letters: {{ length }}</p>
+    <p>Letters: {{ letters }}</p>
     <p>Answer: {{ word }}</p>
     <p>you pressed: {{ letter }}</p>
 
     {% if win %}
         <div id="win">
             <p>You win! The answer was:</p>
-            <br><p>{{ word }}</p><br>
+            <br><b>{{ word }}</b><br>
+            <br>
             <p>Click 'reset' at the bottom to play again</p>
         </div>
     {% endif %}
@@ -24,6 +26,7 @@
         <input type="hidden" name="masked" value="{{ masked }}">
         <input type="hidden" name="length" value="{{ length }}">
         <input type="hidden" name="english" value="{{ english }}">
+        <input type="hidden" name="letters" value="{{ letters }}">
         <input name="guess" placeholder="Guess word" type="text">
         <button type="submit">Confirm</button>
         <div class="letter-container">

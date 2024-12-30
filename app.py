@@ -12,6 +12,7 @@ def index():
 def play():
     
     if request.method == "GET":
+        letters = ""
         word_dict = wordlist()
         word = str(word_dict['shavian'])
         english = str(word_dict['english'])
@@ -28,7 +29,12 @@ def play():
         length = int(request.form.get("length"))
         masked = request.form.get("masked")
         english = request.form.get("english")
+        letters = request.form.get("letters")
 
+        if letter and letter not in word:
+            letters = letters + letter + ','
+        print(letter)
+        print(letters)
 
         for i in range(length):
             if letter == word[i]:
@@ -42,13 +48,14 @@ def play():
 
         if win == True:
             print("victory!")
-        return render_template("play.html", length=length, letter=letter, masked=masked, word=word, english=english, win=win)
+        return render_template("play.html", length=length, letter=letter, letters=letters, masked=masked, word=word, english=english, win=win)
 
 
 @app.route("/english", methods=["GET", "POST"])
 def english():
     
     if request.method == "GET":
+        letters = ""
         word_dict = wordlist()
         word = str(word_dict['english'])
         masked = ""
@@ -63,7 +70,12 @@ def english():
         letter = request.form.get("button")
         length = int(request.form.get("length"))
         masked = request.form.get("masked")
+        letters = request.form.get("letters")
 
+        if letter and letter not in word:
+            letters = letters + letter + ','
+        print(letter)
+        print(letters)
 
         for i in range(length):
             if letter == word[i]:
@@ -77,4 +89,4 @@ def english():
 
         if win == True:
             print("victory!")
-        return render_template("english.html", length=length, letter=letter, masked=masked, word=word, win=win)
+        return render_template("english.html", length=length, letter=letter, letters=letters, masked=masked, word=word, win=win)
