@@ -12,9 +12,9 @@
     <p>you pressed: {{ letter }}</p>
 
     {% if win %}
-        <div>
+        <div id="win">
             <p>You win! The answer was:</p>
-            <br><p>{{ word }} ({{ english}})</p><br>
+            <br><b>{{ word }} ({{ english}})</b><br>
             <p>Click 'reset' at the bottom to play again</p>
         </div>
     {% endif %}
@@ -24,7 +24,7 @@
         <input type="hidden" name="masked" value="{{ masked }}">
         <input type="hidden" name="length" value="{{ length }}">
         <input type="hidden" name="english" value="{{ english }}">
-        <input name="guess" placeholder="Guess word" type="text">
+        <input name="guess" placeholder="Guess word (English)" type="text">
         <button type="submit">Confirm</button>
         <div class="letter-container">
             <div>
