@@ -37,7 +37,10 @@ def play():
         win = 0
         if word == masked:
             win = 1
-        return render_template("play.html", length=length, letter=letter, masked=masked, word=word, english=english)
+
+        if win == True:
+            print("victory!")
+        return render_template("play.html", length=length, letter=letter, masked=masked, word=word, english=english, win=win)
 
 
 
