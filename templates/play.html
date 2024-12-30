@@ -11,10 +11,13 @@
     <p>Answer: {{ word }} ({{ english }})</p>
     <p>you pressed: {{ letter }}</p>
     {% if win %}
-        <p>You win! The answer was:</p>
-        <br><p>{{ word }} ({{ english}})</p><br>
-        <p>Click 'reset' at the bottom to play again</p>
+        <div>
+            <p>You win! The answer was:</p>
+            <br><p>{{ word }} ({{ english}})</p><br>
+            <p>Click 'reset' at the bottom to play again</p>
+        </div>
     {% endif %}
+    {% if not win %}
     <form class="char-rows" method="POST" action="/play">
         <input type="hidden" name="word" value="{{ word }}">
         <input type="hidden" name="masked" value="{{ masked }}">
@@ -79,6 +82,7 @@
             <button type="submit" name="button" value="𐑿">𐑿</button>
         </div>
     </form> 
+    {% endif %}
     <form method="GET" action="/play">
         <button onclick="redirect('./')">Reset</button>
     </form>
