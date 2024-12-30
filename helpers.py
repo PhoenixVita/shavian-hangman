@@ -1,3 +1,5 @@
+# words from database converted to this list format with the assistance of ChatGPT
+
 import random
 
 def wordlist():
