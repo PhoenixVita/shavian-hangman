@@ -1,1 +1,1 @@
-SELECT DISTINCT "'em", "𐑩𐑥" FROM shavian WHERE "'em" IN (SELECT words FROM updated) AND length("'em") > 4 AND length ("'em") < 10;
+SELECT DISTINCT "'em", "𐑩𐑥" FROM shavian WHERE "'em" IN (SELECT words FROM updated) AND length("𐑩𐑥") > 4 AND length ("𐑩𐑥") < 10;

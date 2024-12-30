@@ -8,12 +8,13 @@
     <p>Random word:</p>
     <p id="masked">{{ masked }}</p>
     <p>Letters: {{ length }}</p>
-    <p>Answer: {{ word }}</p>
+    <p>Answer: {{ word }} ({{ english }})</p>
     <p>you pressed: {{ letter }}</p>
     <form class="char-rows" method="POST" action="/play">
         <input type="hidden" name="word" value="{{ word }}">
         <input type="hidden" name="masked" value="{{ masked }}">
         <input type="hidden" name="length" value="{{ length }}">
+        <input type="hidden" name="english" value="{{ english }}">
         <div>
             <button type="submit" name="button" value="𐑐">𐑐</button>
             <button type="submit" name="button" value="𐑑">𐑑</button>

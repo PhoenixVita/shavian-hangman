@@ -13,26 +13,31 @@ def index():
 def play():
     
     if request.method == "GET":
-        word = str(wordlist())
+        word_dict = wordlist()
+        word = str(word_dict['shavian'])
+        english = str(word_dict['english'])
         masked = ""
         length = len(word)
         for char in word:
             masked += "_"
-        return render_template("play.html", length=length, masked=masked, word=word)
+        return render_template("play.html", length=length, masked=masked, word=word, english=english)
 
     else:
         word = request.form.get("word") 
         letter = request.form.get("button")
         length = int(request.form.get("length"))
         masked = request.form.get("masked")
-
+        english = request.form.get("english")
 
 
         for i in range(length):
             if letter == word[i]:
                 masked = masked[:i] + word[i] + masked[i + 1:]
-        
-        return render_template("play.html", length=length, letter=letter, masked=masked, word=word)
+
+        win = 0
+        if word == masked:
+            win = 1
+        return render_template("play.html", length=length, letter=letter, masked=masked, word=word, english=english)
 
 
 
