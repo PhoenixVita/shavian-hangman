@@ -51,12 +51,11 @@ def english():
     if request.method == "GET":
         word_dict = wordlist()
         word = str(word_dict['english'])
-        english = str(word_dict['english'])
         masked = ""
         length = len(word)
         for char in word:
             masked += "_"
-        return render_template("english.html", length=length, masked=masked, word=word, english=english)
+        return render_template("english.html", length=length, masked=masked, word=word)
 
     else:
         guess = request.form.get("guess")
@@ -64,7 +63,6 @@ def english():
         letter = request.form.get("button")
         length = int(request.form.get("length"))
         masked = request.form.get("masked")
-        english = request.form.get("english")
 
 
         for i in range(length):
@@ -73,10 +71,10 @@ def english():
 
         
         win = 0
-        if word == masked or english == guess:
+        if word == masked or word == guess:
             masked = word
             win = 1
 
         if win == True:
             print("victory!")
-        return render_template("english.html", length=length, letter=letter, masked=masked, word=word, english=english, win=win)
+        return render_template("english.html", length=length, letter=letter, masked=masked, word=word, win=win)
