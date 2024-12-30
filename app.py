@@ -23,7 +23,7 @@ def play():
         return render_template("play.html", length=length, masked=masked, word=word, english=english)
 
     else:
-        guess = request.form.get("guess")
+        guess = request.form.get("guess").lower()
         word = request.form.get("word") 
         letter = request.form.get("button")
         length = int(request.form.get("length"))
@@ -32,9 +32,10 @@ def play():
         letters = request.form.get("letters")
 
         if letter and letter not in word:
-            letters = letters + letter + ','
-        print(letter)
-        print(letters)
+            letters = letters + letter + ', '
+
+        if guess:
+            letters = letters + guess + ', '
 
         for i in range(length):
             if letter == word[i]:
@@ -65,7 +66,7 @@ def english():
         return render_template("english.html", length=length, masked=masked, word=word)
 
     else:
-        guess = request.form.get("guess")
+        guess = request.form.get("guess").lower()
         word = request.form.get("word") 
         letter = request.form.get("button")
         length = int(request.form.get("length"))
@@ -74,8 +75,6 @@ def english():
 
         if letter and letter not in word:
             letters = letters + letter + ','
-        print(letter)
-        print(letters)
 
         for i in range(length):
             if letter == word[i]:
