@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <p>Random word:</p>
+    <div>
+        <p>Random word:</p>
+    </div>
     <p id="masked">{{ masked }}</p>
     <p>Letters: {{ length }}</p>
     <p>Answer: {{ word }} ({{ english }})</p>
@@ -91,4 +93,5 @@
     <form method="GET" action="/play">
         <button onclick="redirect('./')">Reset</button>
     </form>
+    <a style="color: #e5c890;" href="https://shavian.school/table.html">Hint</a>
 {% endblock %}

@@ -23,6 +23,7 @@ img {
 button {
     background-color: #eff1f5;
     margin-top: 10px;
+    border: 1px #ca9ee6 solid;
 }
 
 .letter-container {
@@ -33,7 +34,6 @@ button {
     width: 20px;
     height: 20px;
     margin: 1px -1px 1px;
-    border: 1px #ca9ee6 solid;
 }
 
 #win {
